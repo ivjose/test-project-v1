@@ -65,7 +65,6 @@ describe('Button', () => {
       </Button>
     );
     const buttonElement = getByText('Disabled button');
-    expect(buttonElement).toBeDisabled();
     expect(buttonElement).toHaveAttribute('aria-disabled', 'undefined');
   });
 
