@@ -1,0 +1,87 @@
+:root {
+  --text-light: #ffffff;
+  --text-dark: #1b1b1b;
+  --default-color: #f0f0f0;
+  --default-darken-color: #d6d6d6;
+  --primary-color: #1d4ed8;
+  --primary-darken-color: #1e3a8a;
+  --secondary-color: #f0f9ff;
+  --secondary-darken-color: #bfdbfe;
+  --danger-color: #ef4444;
+  --danger-darken-color: #b91c1c;
+  --disabled-color: #b3b3b3;
+}
+
+.button {
+  border-radius: 8px;
+  border: 1px solid var(--default-color);
+  padding: 0.6em 1.2em;
+  display: inline-block;
+  line-height: 1em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  color: var(--text-dark);
+  background-color: var(--default-color);
+  cursor: pointer;
+  transition: border-color 0.25s;
+
+}
+
+.button:hover {
+  background-color: var(--default-darken-color);
+  border-color: var(--default-darken-color);
+  color: var(--text-dark);
+}
+
+.button:active {
+  box-shadow: 0px 3px 6px rgba(136, 136, 136, 0.35);
+}
+
+.button.primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: var(--text-light);
+}
+
+.button.primary:hover {
+  background-color: var(--primary-darken-color);
+  border-color: var(--primary-darken-color);
+}
+
+.button.secondary {
+  background-color: var(--secondary-color);
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+.button.secondary:hover {
+  background-color: var(--secondary-darken-color);
+}
+
+.button.danger {
+  background-color: var(--danger-color);
+  border-color: var(--danger-color);
+  color: var(--text-light);
+}
+
+.button.danger:hover {
+  background-color: var(--danger-darken-color);
+  border-color: var(--danger-darken-color);
+ 
+}
+
+.button.disabled {
+  cursor: not-allowed;
+  background-color: var(--disabled-color);
+  border-color: var(--disabled-color);
+  color: var(--text-dark);
+}
+
+.button.disabled:active {
+  box-shadow: none
+}
+
+
+.button.block {
+  width: 100%
+}
