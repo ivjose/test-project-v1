@@ -1,3 +1,7 @@
+/* eslint-disable react/jsx-props-no-spreading */
+/* eslint-disable react/button-has-type */
+/* eslint-disable react/require-default-props */
+
 // 1. Button Component: Implement a Button component that includes different states
 // (default, hover, active, disabled) and variations (primary, secondary, danger, etc.).
 
@@ -9,7 +13,7 @@
 // easily added in the future.
 
 // Testing: Write unit tests for your components using a testing library of your choice
-// (Jest, React Testing Library, etc.). Ensure all major functionality is covered.
+// (J/* eslint-disable-next-line react/jsx-props-no-spreading */est, React Testing Library, etc.). Ensure all major functionality is covered.
 
 // Responsive Design: The components should be responsive and work well on
 // different screen sizes.
@@ -17,9 +21,13 @@
 // Accessibility: The components are usable via keyboard navigation and contain
 // appropriate properties.
 
-
-import React, { ButtonHTMLAttributes, AnchorHTMLAttributes, KeyboardEvent, CSSProperties } from 'react';
 import classNames from 'classnames';
+import {
+  AnchorHTMLAttributes,
+  ButtonHTMLAttributes,
+  CSSProperties,
+  KeyboardEvent,
+} from 'react';
 import './Button.css';
 
 type ButtonProps = {
@@ -30,11 +38,13 @@ type ButtonProps = {
   ariaLabel?: string;
   block?: boolean;
   style?: CSSProperties;
-  onKeyDown?: (event: KeyboardEvent<HTMLButtonElement | HTMLAnchorElement>) => void;
+  onKeyDown?: (
+    event: KeyboardEvent<HTMLButtonElement | HTMLAnchorElement>
+  ) => void;
 } & ButtonHTMLAttributes<HTMLButtonElement> &
   AnchorHTMLAttributes<HTMLAnchorElement>;
 
-const Button: React.FC<ButtonProps> = ({
+function Button({
   children,
   variant = 'default',
   disabled = false,
@@ -45,10 +55,12 @@ const Button: React.FC<ButtonProps> = ({
   style,
   onKeyDown,
   ...rest
-}) => {
+}: ButtonProps) {
   const buttonClasses = classNames('button', variant, { disabled, block });
 
-  const handleKeyDown = (event: KeyboardEvent<HTMLButtonElement | HTMLAnchorElement>) => {
+  const handleKeyDown = (
+    event: KeyboardEvent<HTMLButtonElement | HTMLAnchorElement>
+  ) => {
     if (event.key === 'Enter' && !disabled && onKeyDown) {
       onKeyDown(event);
     }
@@ -85,6 +97,6 @@ const Button: React.FC<ButtonProps> = ({
       {children}
     </button>
   );
-};
+}
 
 export default Button;

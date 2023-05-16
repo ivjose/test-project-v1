@@ -1,4 +1,3 @@
- 
 // 2. Input Field Component: Implement an Input Field component that includes
 // different states (default, focus, error) and types (text, email, password, etc.).
 
@@ -19,9 +18,7 @@
 // appropriate properties.
 
 function Input() {
-  return (
-    <div>Input</div>
-  )
+  return <div>Input</div>;
 }
 
-export default Input
+export default Input;
