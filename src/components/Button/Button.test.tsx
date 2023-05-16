@@ -65,7 +65,7 @@ describe('Button', () => {
       </Button>
     );
     const buttonElement = getByText('Disabled button');
-    expect(buttonElement).toHaveAttribute('aria-disabled', 'undefined');
+    expect(buttonElement).toHaveAttribute('aria-disabled', 'true');
   });
 
   it('renders button as anchor link correctly', () => {
