@@ -57,6 +57,18 @@ describe('Button', () => {
     expect(buttonElement).toBeDisabled();
     expect(buttonElement).toHaveAttribute('aria-disabled', 'true');
   });
+
+  it('renders disabled link correctly', () => {
+    const { getByText } = render(
+      <Button href="https://google.com" disabled>
+        Disabled button
+      </Button>
+    );
+    const buttonElement = getByText('Disabled button');
+    expect(buttonElement).toBeDisabled();
+    expect(buttonElement).toHaveAttribute('aria-disabled', 'undefined');
+  });
+
   it('renders button as anchor link correctly', () => {
     const { getByText } = render(
       <Button href="https://google.com">Go to Google</Button>
@@ -64,6 +76,23 @@ describe('Button', () => {
     const linkElement = getByText('Go to Google');
     expect(linkElement.tagName).toBe('A');
     expect(linkElement).toHaveAttribute('href', 'https://google.com');
+  });
+
+  it('handles keydown event correctly', () => {
+    let keyPressed = '';
+    const handleKeyDown = (
+      event: React.KeyboardEvent<HTMLButtonElement | HTMLAnchorElement>
+    ) => {
+      keyPressed = event.key;
+    };
+    const { getByText } = render(
+      <Button onKeyDown={handleKeyDown}>Click me</Button>
+    );
+    const buttonElement = getByText('Click me');
+
+    fireEvent.keyDown(buttonElement, { key: 'Enter' });
+
+    expect(keyPressed).toBe('Enter');
   });
 
   it('applies title attribute correctly', () => {
