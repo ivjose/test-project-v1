@@ -6,43 +6,24 @@ import Input from './Input';
 describe('Input component', () => {
   it('renders the input field with label', () => {
     const label = 'Username';
-    render(
-      <Input
-        type="text"
-        label={label}
-        id={label.toLowerCase()}
-        name={label.toLowerCase()}
-      />
-    );
+    const id = 'username';
+    render(<Input type="text" label={label} id={id} name={id} />);
     const inputElement = screen.getByLabelText(label) as HTMLInputElement;
     expect(inputElement).toBeInTheDocument();
   });
 
   it('renders the textarea field with label', () => {
     const label = 'Description';
-    render(
-      <Input
-        type="textarea"
-        label={label}
-        id={label.toLowerCase()}
-        name={label.toLowerCase()}
-      />
-    );
+    const id = 'description';
+    render(<Input type="textarea" label={label} id={id} name={id} />);
     const textareaElement = screen.getByLabelText(label) as HTMLInputElement;
     expect(textareaElement).toBeInTheDocument();
   });
 
   it('renders the input field with label and accessibility attributes', () => {
     const label = 'Username';
-    render(
-      <Input
-        type="text"
-        label={label}
-        id={label.toLowerCase()}
-        name={label.toLowerCase()}
-        required
-      />
-    );
+    const id = 'username';
+    render(<Input type="text" label={label} id={id} name={id} required />);
     const inputElement = screen.getByLabelText(label) as HTMLInputElement;
     expect(inputElement).toBeInTheDocument();
     expect(inputElement).toHaveAttribute('aria-invalid', 'false');
@@ -52,13 +33,14 @@ describe('Input component', () => {
 
   it('triggers onChange event', () => {
     const label = 'Username';
+    const id = 'username';
     const handleChange = vi.fn();
     render(
       <Input
         type="text"
         label={label}
-        id={label.toLowerCase()}
-        name={label.toLowerCase()}
+        id={id}
+        name={id}
         onChange={handleChange}
       />
     );
@@ -73,6 +55,11 @@ describe('Input component', () => {
     const id = 'username';
     const error = 'Username is required';
     render(<Input type="text" label={label} id={id} name={id} error={error} />);
+
+    const inputElement = screen.getByLabelText(label) as HTMLInputElement;
+    expect(inputElement).toBeInTheDocument();
+    expect(inputElement).toHaveAttribute('aria-invalid', 'true');
+
     const errorMessage = screen.getByText(error);
     expect(errorMessage).toBeInTheDocument();
     expect(errorMessage).toHaveAttribute('id', `${id}-error`);
