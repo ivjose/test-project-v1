@@ -40,9 +40,9 @@ describe('Input component', () => {
       />
     );
     const inputElement = screen.getByLabelText(label) as HTMLInputElement;
-    fireEvent.change(inputElement, { target: { value: 'test' } });
+    fireEvent.change(inputElement, { target: { value: 'john doe' } });
     expect(handleChange).toHaveBeenCalledTimes(1);
-    expect(inputElement.value).toBe('test');
+    expect(inputElement.value).toBe('john doe');
   });
 
   it('displays error message when error prop is provided for input', () => {
