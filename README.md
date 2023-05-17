@@ -1,10 +1,8 @@
 # Vite + React
 
-### Access Locally
+### Run Locally
 
 ```
-$ git clone https://github.com/[GITHUB_USERNAME]/[REPO_NAME].git
-$ cd [REPO_NAME]
 $ npm install
 $ npm run dev
 ```
