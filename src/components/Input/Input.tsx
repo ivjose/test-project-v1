@@ -1,24 +1,64 @@
-// 2. Input Field Component: Implement an Input Field component that includes
-// different states (default, focus, error) and types (text, email, password, etc.).
+/* eslint-disable react/jsx-props-no-spreading */
+/* eslint-disable react/require-default-props */
 
-// Design Principles:
-// Component Design: Each component should be self-contained and reusable. It
-// should accept props to modify its behavior or style.
+import classNames from 'classnames';
+import './Input.css';
 
-// Scalability: The library should be designed in a way that new components can be
-// easily added in the future.
+export interface InputProps
+  extends React.InputHTMLAttributes<HTMLInputElement | HTMLTextAreaElement> {
+  label: string;
+  error?: string;
+}
 
-// Testing: Write unit tests for your components using a testing library of your choice
-// (Jest, React Testing Library, etc.). Ensure all major functionality is covered.
+function Input({ type, label, error, ...rest }: InputProps) {
+  const inputClassName = classNames('input-field', {
+    'input-field--error': error,
+  });
 
-// Responsive Design: The components should be responsive and work well on
-// different screen sizes.
+  if (type === 'textarea') {
+    return (
+      <div className="input-container">
+        <label htmlFor={rest.id} className="input-label">
+          {label}
+        </label>
 
-// Accessibility: The components are usable via keyboard navigation and contain
-// appropriate properties.
+        <textarea
+          className={inputClassName}
+          aria-invalid={error ? 'true' : 'false'}
+          aria-required={rest.required ? 'true' : 'false'}
+          aria-describedby={error ? `${rest.id}-error` : ''}
+          {...rest}
+        />
+        {error && (
+          <div id={`${rest.id}-error`} role="alert" className="error-message">
+            {error}
+          </div>
+        )}
+      </div>
+    );
+  }
 
-function Input() {
-  return <div>Input</div>;
+  return (
+    <div className="input-container">
+      <label htmlFor={rest.id} className="input-label">
+        {label}
+      </label>
+
+      <input
+        type={type}
+        className={inputClassName}
+        aria-invalid={error ? 'true' : 'false'}
+        aria-required={rest.required ? 'true' : 'false'}
+        aria-describedby={error ? `${rest.id}-error` : ''}
+        {...rest}
+      />
+      {error && (
+        <div id={`${rest.id}-error`} role="alert" className="error-message">
+          {error}
+        </div>
+      )}
+    </div>
+  );
 }
 
 export default Input;

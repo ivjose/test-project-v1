@@ -1,9 +1,24 @@
 :root {
+  --text-light: #ffffff;
+  --text-dark: #1b1b1b;
+  --text-light-dark: #5a5a5a;
+  --default-color: #f0f0f0;
+  --default-darken-color: #d6d6d6;
+  --primary-color: #1d4ed8;
+  --primary-darken-color: #1e3a8a;
+  --secondary-color: #f0f9ff;
+  --secondary-darken-color: #bfdbfe;
+  --danger-color: #f15454;
+  --danger-darken-color: #b91c1c;
+  --disabled-color: #b3b3b3;
+  --border-color: #9b9b9b;
+  --border-color-darken: #555555;
+
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
+  color: #161616;
   background-color: #ffffff;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -11,9 +26,28 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+.space-block {
+  margin-bottom: 5rem;
+}
+
+.space-block h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
 
 .button-group .button {
-  margin-left: 1em;
-  margin-right: 1em;
-  margin-bottom: 2em;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  margin-bottom: 2rem;
+}
+
+.input-group {
+  max-width: 300px;
+  margin: 0 auto;
 }

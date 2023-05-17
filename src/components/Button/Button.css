@@ -1,30 +1,17 @@
-:root {
-  --text-light: #ffffff;
-  --text-dark: #1b1b1b;
-  --default-color: #f0f0f0;
-  --default-darken-color: #d6d6d6;
-  --primary-color: #1d4ed8;
-  --primary-darken-color: #1e3a8a;
-  --secondary-color: #f0f9ff;
-  --secondary-darken-color: #bfdbfe;
-  --danger-color: #ef4444;
-  --danger-darken-color: #b91c1c;
-  --disabled-color: #b3b3b3;
-}
-
 .button {
   border-radius: 8px;
   border: 1px solid var(--default-color);
-  padding: 0.6em 1.2em;
+  padding: 0.6rem 1.2rem;
   display: inline-block;
-  line-height: 1em;
-  font-size: 1em;
+  line-height: 1rem;
+  font-size: 1rem;
   font-weight: 500;
   font-family: inherit;
   color: var(--text-dark);
   background-color: var(--default-color);
   cursor: pointer;
   transition: border-color 0.25s;
+  transition: 0.25s;
 }
 
 .button:hover {

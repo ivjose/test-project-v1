@@ -1,0 +1,80 @@
+.input-container {
+  margin: 0.75rem 0.25rem;
+}
+
+.input-label {
+  font-weight: 600;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: var(--text-dark);
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+input[type='text'],
+input[type='email'],
+input[type='url'],
+input[type='password'],
+input[type='number'],
+input[type='date'],
+input[type='datetime-local'],
+input[type='month'],
+input[type='search'],
+input[type='tel'],
+input[type='time'],
+input[type='week'],
+textarea,
+select {
+  width: 100%;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: var(--text-light);
+  border: 2px solid var(--border-color);
+  border-radius: 0.25rem;
+  padding-left: 0.75rem;
+  font-size: 0.85rem;
+  line-height: 2rem;
+  color: var(--text-light-dark);
+  margin: 0;
+  margin-bottom: 0.25rem;
+  transition: 0.5s;
+  outline: none;
+}
+
+input[type='text']:focus,
+input[type='email']:focus,
+input[type='url']:focus,
+input[type='password']:focus,
+input[type='number']:focus,
+input[type='date']:focus,
+input[type='datetime-local']:focus,
+input[type='month']:focus,
+input[type='search']:focus input[type='tel']:focus,
+input[type='time']:focus,
+input[type='week']:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--border-darken-color);
+}
+
+input::placeholder {
+  font-weight: bold;
+  opacity: 0.5;
+  color: var(--text-light-dark);
+}
+
+.input-field--error {
+  border-color: var(--danger-color);
+  color: var(--danger-color);
+}
+
+.input-field--error:focus {
+  border-color: var(--danger-darken-color);
+}
+
+.error-message {
+  color: var(--danger-color);
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}

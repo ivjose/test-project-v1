@@ -2,25 +2,6 @@
 /* eslint-disable react/button-has-type */
 /* eslint-disable react/require-default-props */
 
-// 1. Button Component: Implement a Button component that includes different states
-// (default, hover, active, disabled) and variations (primary, secondary, danger, etc.).
-
-// Design Principles:
-// Component Design: Each component should be self-contained and reusable. It
-// should accept props to modify its behavior or style.
-
-// Scalability: The library should be designed in a way that new components can be
-// easily added in the future.
-
-// Testing: Write unit tests for your components using a testing library of your choice
-// (J/* eslint-disable-next-line react/jsx-props-no-spreading */est, React Testing Library, etc.). Ensure all major functionality is covered.
-
-// Responsive Design: The components should be responsive and work well on
-// different screen sizes.
-
-// Accessibility: The components are usable via keyboard navigation and contain
-// appropriate properties.
-
 import classNames from 'classnames';
 import {
   AnchorHTMLAttributes,

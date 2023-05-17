@@ -1,5 +1,5 @@
 import { fireEvent, render } from '@testing-library/react';
-import { describe, it } from 'vitest';
+import { describe, it, vi } from 'vitest';
 
 import Button from './Button';
 
@@ -39,16 +39,13 @@ describe('Button', () => {
   });
 
   it('handles click event correctly', () => {
-    let clicked = false;
-    const handleClick = () => {
-      clicked = true;
-    };
+    const handleClick = vi.fn();
     const { getByText } = render(
       <Button onClick={handleClick}>Click event</Button>
     );
     const buttonElement = getByText('Click event');
     fireEvent.click(buttonElement);
-    expect(clicked).toBe(true);
+    expect(handleClick).toHaveBeenCalledTimes(1);
   });
 
   it('renders disabled button correctly', () => {
