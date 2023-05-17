@@ -50,6 +50,7 @@ function App() {
             type="textarea"
             id="error-display"
             error="Required Fields"
+            required
           />
         </div>
       </div>
